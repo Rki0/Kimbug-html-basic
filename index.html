@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="hello">hello!</h1>
+    <h2>dlrjek</h2>
+    <!--강조-->
+    <p lang="en">
+      hello!dklafn;sdfns;fn;sdkfnsfn;asf <br />
+      <strong>굵게 쓰고싶다!</strong> aklsn;fkaensf;snfa;es <br />
+      <em>기울여 쓰고싶다!</em>
+      asf;ns;fknas;fsdfdsfa
+    </p>
+    <!--링크-->
+    <a href="http://www.naver.com">웹 url 링크.. hypertext reference == href</a>
+    <br />
+    <a href="http://www.naver.com" target="_blank"
+      >이건 새로운 탭에서 열어준다.</a
+    >
+    <br />
+    <a href="">다른 파일의 상대 경로도 입력 가능</a> <br />
+    <a href="#hello">id를 활용해서 페이지 내 이동 가능</a> <br />
+    <a href="mailto:pky00823@naver.com">링크된 이메일로 메일 쓰기</a> <br />
+    <a href="tel:01012345678">모바일에서 사용시...전화 걸기 가능</a> <br />
+    <a href="http://www.naver.com" target="_blank">
+      <p>
+        이 글을 누르면 네이버로 이동하게 될거야!! 이런 식으로 표현 할 수도 있어~
+      </p>
+    </a>
+    <!--이미지-->
+    <!--source == src, alternavtive text == alt-->
+    <!--scr는 파일에 저장한 이미지를 상대경로로 지정해서 사용할 수 도 있고, 직접 이미지 url을 넣어서 사용할 수 도 있다.-->
+    <!--alt는 사진이 로딩 되기 전이나 제대로 출력이 안됐을 때 보이는 것-->
+    <img
+      src="https://newsroom-prd-data.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2018/08/b_01.png"
+      alt="여행 이미지"
+    />
+    <img src="./images/b_01.png" alt="" />
+    <!--리스트-->
+    <ul>
+      <li>unordered list == ul</li>
+      <li>list item == li</li>
+      <li>
+        ul 직계 자식요소는 li만 가능하다. li 안에 다른 태그를 넣는 것은 가능
+      </li>
+      <li><a href="http://naver.com" target="_blank">네이버</a></li>
+      <li>순서가 따로 정해져 있지 않다</li>
+    </ul>
+    <h2>급상승 검색어</h2>
+    <ol>
+      <li>orderd list == ol</li>
+      <li>순서가 있어야 하는 리스트에 사용</li>
+      <li>주니어 개발자</li>
+      <li><a href="http://naver.com">네이버</a></li>
+    </ol>
+    <!--정의 리스트-->
+    <!--description list == dl-->
+    <!--description term == dt-->
+    <!--description data == dd-->
+    <!--definition == dfn-->
+    <!--dl의 자식요소로는 div, dt, dd만 가능하다! 아, 물론 dfn도..-->
+    <!--용어 정의 할 때 사용, key & value로 정보를 제공할 때 사용-->
+    <dl>
+      <dt>
+        <dfn> 박기영 </dfn>
+      </dt>
+      <dt>Pak ki young</dt>
+      <dd>박기영은 하루빨리 프론트엔드 개발자가 되고싶다.</dd>
+      <dd><a href="http://www.naver.com">gg</a></dd>
+      <dt>프론트 엔드</dt>
+      <dd>박기영은 프론트엔드 개발자가 되고싶어!</dd>
+      <dd>백엔드와 연결이 되는 직업!</dd>
+      <div>
+        <dt>이렇게도 가능하지</dt>
+        <dd>박기영은 프론트엔드 개발자가 되고싶어!</dd>
+        <dd>백엔드와 연결이 되는 직업!</dd>
+      </div>
+    </dl>
+    <!--인용-->
+    <!--인용문을 표현하고 싶을 때는 blockquote, q 태그가 있다.-->
+    <!--인용문이 너무 많으면 blockqutoe로 q가 포함된 영역을 한번에 감싸도 되겠지-->
+    <!--blockquote : 주로 문단이나 내용 전체가 인용문일 경우 사용-->
+    <!--cite : 출처를 적을 때 사용-->
+    <blockquote cite="http://www.naver.com">
+      우리가 겪을 수 있는 가장 아름다운 체험은 신비다. <br />
+      신비는 모든 참예술과 과학의 결과이다.
+      <cite>알버트 아인슈타인</cite>
+    </blockquote>
+    <!--q : 문장 내에 살짝 들어가는 인용문 쓸 때 사용-->
+    <p>나는 말했다.<q>프론트엔드 개발자가 되고싶다고!</q></p>
+    <!--div, span-->
+    <!--아무런 의미가 없는 태그-->
+    <!--div: 요소들을 묶을 때 사용한다.-->
+    <!--span : 문장 안에 따로 묶어서 표현하고 싶은 부분이 있다면 그걸 감쌀 때 사용한다.-->
+    <!--form-->
+    <!--<form action="API 주소" method="GET|POST"></form> 형태-->
+    <!--사용자로부터 input을 받기 위해 사용-->
+    <!--action은 사용자로부터 받은 input을 서버에 보내서 데이터를 처리하기 위한 것. 이걸 처리해 줄 API 서버쪽 친구에게 접근 가능한 URL을 써줘야한다.-->
+    <!--method는 정보의 양이 많으면 POST 아니라면 GET 정도로 이해하자.-->
+    <!--form 내부에 사용할 다양한 태그들-->
+    <!--input-->
+    <!--<input type="text" />-->
+    <!--입력창, 인풋 필드(input field)-->
+    <form action="" method="get">
+      <input
+        type="text"
+        placeholder="안내 문구"
+        maxlength="15"
+        minlength="5"
+        required
+        value="초기값"
+      />
+      <input type="text" disabled />
+      <input type="email" placeholder="이메일을 입력하세요" />
+      <input type="password" placeholder="비밀번호" minlength="6" />
+      <input type="url" placeholder="포트폴리오 URL을 적으시오" />
+      <input
+        type="tel"
+        placeholder="전화번호 (***-****-****)"
+        pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+      />
+      <input
+        type="number"
+        placeholder="나이를 입력하세요(12세  이상 ~  122세 이하)"
+        min="12"
+        max="122"
+      />
+      <!--maxlength가 문자 길이 자체를 제한한다면, max는 입력할 수 있는 숫자의 최대 값을 제한-->
+      <input type="file" accept=".png, .jpg" />
+      <!--png와 img 파일만 받겠다고 제한을 걸 수도 있다.-->
+      <!--label-->
+      <!--input에 대한 이름을 붙여준다.-->
+      <!--항상 label 태그에 for를 사용해서 어떤 input과 연결된건지 말해줘야한다!-->
+      <!--레이블을 누르면 input이 눌린 것 처럼 반응함!-->
+      <label for="thisInput">레이블 실험</label>
+      <input type="text" id="thisInput" placeholder="레이블 실험" />
+      <button>submit</button>
+    </form>
+    <!--input의 특이한 녀석들 radio, checkbox-->
+    <!--radio는 여러 개 중 하나만 선택 가능-->
+    <!--같은 name을 써줘야만 같은 묶음이라는걸 인식해서 다중 선택을 막을 수 있다!-->
+    <form action="" method="get">
+      <input type="radio" id="hi" name="greeting" value="hello" />
+      <label for="hi">hi</label>
+      <input type="radio" id="bye" name="greeting" value="goodBye" />
+      <label for="bye">bye</label>
+      <!--submit 버튼을 만들어서 제출하면 서버에 전송할 때 어떤 name 중 어떤 녀석이 전송되었는지 url에 표시됨. 문제는 어떤걸 선택했는지 구분이 안된다는 것! 따라서 value를 작성해서 구분을 지어줘야한다.-->
+      <!--name = value 이런 식으로 전송됨.-->
+      <hr />
+      <input type="radio" id="anhi" name="angreeting" value="anhello" />
+      <label for="anhi">anhi</label>
+      <input type="radio" id="anbye" name="angreeting" value="angoodBye" />
+      <label for="anbye">anbye</label>
+      <!--여러 radio 묶음을 전송하므로 name = value & name = value 이런 식으로 전송됨.-->
+      <button>submit</button>
+    </form>
+    <!--checkbox는 여러 개 중 여러가지 선택 가능-->
+    <!--그 외에는 radio와 동일-->
+    <h1>사용 가능 언어</h1>
+    <form action="" method="get">
+      <input type="checkbox" id="ko" name="lang" value="ko" />
+      <label for="ko">한국어</label>
+      <input type="checkbox" id="en" name="lang" value="en" />
+      <label for="en">영어</label>
+      <input type="checkbox" id="jp" name="lang" value="jp" />
+      <label for="jp">일본어</label>
+      <button>submit</button>
+    </form>
+  </body>
+</html>
