@@ -290,3 +290,197 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 
 위 코드를 보면 알겠지만 **radio** 태그와 사용법이 완전히 동일하다.  
 다른 점은 다중 선택이 가능하다는 점이다.
+
+### 11. 옵션 선택(select, option)
+
+> **select**는 다양한 **option** 중 하나를 선택할 수 있도록 풀다운 메뉴를 만들어 준다.  
+> 풀다운 메뉴에는 **option** 태그를 사용하여 만든 텍스트들이 표시된다.
+
+```html
+<form action="" method="get">
+  <label for="langSelect">언어</label>
+  <select name="lang" id="langSelect">
+    <option value="ko">ko</option>
+    <option value="en">en</option>
+    <option value="jp">jp</option>
+  </select>
+  <select multiple name="skill" id="skill">
+    <option value="html">html</option>
+    <option value="css">css</option>
+    <option value="js">js</option>
+  </select>
+  <button type="submit">submit</button>
+</form>
+```
+
+**multiple** 속성을 추가하면 cmd나 ctrl을 누른채로 다중 선택이 가능하도록 만들 수도 있다.
+
+### 12. textarea
+
+> 일반적인 **input**태그가 한 줄 정도의 입력을 받아낼 수 있다면, **textarea**는 여러 줄의 input을 받을 수 있다.
+
+```html
+</form>
+    <label for="field">field</label>
+    <textarea
+      name=""
+      id="field"
+      cols="30"
+      rows="10"
+      placeholder="자기소개를 입력하세요"
+    ></textarea>
+```
+
+**cols**와 **rows** 속성을 사용하여 행과 열의 최대치를 설정할 수 있다.  
+또한, **placeholder** 속성을 사용하여 안내 문구를 적을 수도 있다.  
+여타 input과 마찬가지로 **label**과 연결을 할 수도 있다.
+
+### 13. 버튼(button)
+
+> **button** 태그는 위에서부터 **form, input** 태그와 함께 많이 쓰여왔다.  
+> **button** 태그를 사용할 때는 항상 **type** attr를 반드시 써줘야한다.  
+> attr에는 3가지가 있다.  
+> 첫 째, **submit**이다. 보통 **form**을 제출할 때 사용한다. 가장 많이 사용하는 속성이기도 하다.
+> 둘 째, **button**이다. 보통 JS와 연결해서 눌렀을 때 JS 코드가 실행되게 하는 등의 기능을 구현할 때 쓰인다.  
+> 셋 째, **reset**이다. **form, input**에 기입한 내용을 전부 리셋해버리는 기능을 구현한다.
+
+```html
+<form action="">
+  <input type="text" />
+  <!--type attr을 꼭 적어줘야한다!-->
+  <!--form을 제출할 때 사용-->
+  <button type="submit">버튼1</button>
+  <!--눌렀을 때 js 실행되게 하는 등의 기능할 때 쓴다.-->
+  <button type="button">버튼2</button>
+  <!--form 등을 리셋하고 싶을 때 사용-->
+  <button type="reset">버튼3</button>
+</form>
+```
+
+### 14. 표(table, tr, th, td, thead, tbody, tfoot)
+
+> 데이터를 담은 표를 테이블이라고 한다.  
+> 리스트와 비슷한 느낌으로 태그를 사용한다고 생각하면 쉽다.  
+> **table**을 만들겠다고 하고, **tr, th, td** 태그를 활용하여 자식요소를 생성한다.  
+> **tr == table row**를 의미한다. 즉, 테이블의 한 행을 생성해주며, 이 태그 안에 작성하는 것들은 모두 한 행에 표시된다.  
+> **th == table head**를 의미한다. 이 태그 안에 작성하는 것은 bold체로 작성되며, 해당 행이나 열을 대표하는 것을 작성할 때 사용한다. 따라서 첫번째 **tr**에서 **th**를 몇 개 정의하냐에 따라 다음 행에 작성할 코드의 개수가 정해지게 될 것이다.  
+> **td == table data**를 의미한다. 하나의 셀에 들어갈 데이터를 입력하는 태그이다.
+
+```html
+<table>
+  <thead>
+    <tr>
+      시작
+      <th>ID</th>
+      <th>이름</th>
+      <th>개발분야</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00001</td>
+      <td>박기영</td>
+      <td>프론트엔드</td>
+    </tr>
+    <tr>
+      <td>00002</td>
+      <td>김아무개</td>
+      <td>풀스택</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>2아이디</td>
+      <td>2명</td>
+      <td>2직군</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+위 코드를 보면 **thead, tbody, tfoot** 태그가 **table** 관련 태그들을 감싸고 있는 것을 확인할 수 있다.  
+이들은 브라우저가 html 파일을 읽을 때 어떤 부분이 head인지 어떤 부분이 body인지 어떤 부분이 foot인지 더 명확하게 구분할 수 있게 만들어준다.  
+보통 **thead**의 경우 header 역할을 하는 **th**가 모여 있는 부분을 감싼다.  
+**tbody**의 경우 body 역할을 하는 **td**가 모여 있는 부분을 감싼다. 물론 해당 행에서의 역할에 따라 **th**가 감싸질 수도 있다!  
+**tfoot**의 경우 총 합계 같은 최종 결론 데이터를 감쌀 때 사용한다.
+
+### 14 - 1. 테이블 활용 예시
+
+> 아래와 같은 시간표 테이블을 예제로 만들어보았다.  
+> 이해하는데 큰 도움이 되었으므로 길더라도 한번쯤 보는게 좋을 것 같다.  
+> CSS 부분은 무시하고 HTML 파트만 보도록 하자.
+
+<img width="798" alt="스크린샷 2022-02-06 오전 1 34 48" src="https://user-images.githubusercontent.com/86224851/152650297-6308787b-4c2b-43b9-8714-65b57efbd25b.png">
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">월</th>
+      <th scope="col">화</th>
+      <th scope="col">수</th>
+      <th scope="col">목</th>
+      <th scope="col">금</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th scope="row">1교시</th>
+      <td rowspan="2" class="html-css-basic">왕초보 HTML &amp; CSS</td>
+      <td class="coding">모각코</td>
+      <td rowspan="2" class="html-css-basic">왕초보 HTML &amp; CSS</td>
+      <td class="coding">모각코</td>
+      <td rowspan="2" class="html-css-basic">왕초보 HTML &amp; CSS</td>
+    </tr>
+    <tr>
+      <th scope="row">2교시</th>
+      <td rowspan="2" class="js-skillup">JavaScript 스킬업</td>
+      <td rowspan="2" class="js-skillup">JavaScript 스킬업</td>
+    </tr>
+    <tr>
+      <th scope="row">3교시</th>
+      <td class="js-basic">JavaScript 시작반</td>
+      <td class="js-basic">JavaScript 시작반</td>
+      <td class="js-basic">JavaScript 시작반</td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="6">점심 시간</th>
+    </tr>
+    <tr>
+      <th scope="row">4교시</th>
+      <td class="sass-basic">SASS 기초반</td>
+      <td rowspan="2" class="portfolio">
+        HTML &amp; CSS<br />
+        포트폴리오반
+      </td>
+      <td rowspan="2">Open Seminar</td>
+      <td rowspan="2" class="portfolio">
+        HTML &amp; CSS<br />
+        포트폴리오반
+      </td>
+      <td class="sass-basic">SASS 기초반</td>
+    </tr>
+    <tr>
+      <th scope="row">5교시</th>
+      <td class="coding">모각코</td>
+      <td class="coding">모각코</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+우선, 시간표에서는 요일이 중요한 지표로 사용되므로 요일 행을 **tr**로 생성한 후 각각의 요일을 **th**로 처리해주었다. 또한, 이들의 집합이 테이블의 헤더 역할을 할 것이므로 **thead**로 감싸주었다. 총 6개의 셀을 생성했으므로 다음 행부터는 6개의 셀을 만들어야 테이블이 정상적으로 만들어질 것이다.  
+다음 행으로 넘어가기 전에 **scope**라는 attr을 볼 수 있다. 이 속성은 헤더가 어떤 방향을 대표하는지를 알려준다. value가 **col**인 것을 보면 해당 열을 대표하는 헤더라는 것을 알 수 있다.
+
+다음으로는 각 교시에 맞는 시간표를 만들 것이므로 본격적인 데이터가 작성될 곳이라 생각하여 **tbody**를 사용해 감싸주었다. 몇 교시인지 알려주는 부분은 그 행을 대표하는 헤더 역할을 하므로 **th**태그를 사용하였고, **scope** attr의 value를 **row**로 설정했다.  
+월요일에는 1-2교시가 같은 과목이므로 두 개 행의 공간을 차지하게 만들어줘야하는데, 이런 셀 병합 동작을 지원하는 attr이 바로 **rowspan, colspan**이다. **rowspan**을 2로 설정하여 행 2칸을 하나로 병합한 것을 확인할 수 있다.
+
+이렇게 셀 병합을 진행하게 되면, 다음 행에서 작성하는 데이터들이 자동적으로 밀려나게 된다. 따라서 셀 병합을 진행한 행의 다음 행을 작성할 때는 병합된 셀 개수만큼 데이터를 빼고 작성해야 정상적인 모양이 나온다.  
+예를들어, 2교시 파트를 보면, 1교시에서 **rowspan**을 사용해 2번째 행을 이미 선점하고 있으므로 이 공간은 사용할 수 없게 된다. 따라서 데이터가 2개만 작성된 것을 볼 수 있다.  
+이런 식으로 **rowspan, colspan**이 사용된 경우 데이터 개수를 알맞게 계산하여 작성해야한다.
+
+점심시간의 경우 하나의 행을 전부 사용하고 있으므로, 해당 행의 모든 열을 병합하면 된다. 열 병합은 앞서 말했듯 **colspan**을 사용하면 된다. **thead**에서 6개의 **th**를 만들었으므로 모든 칸은 통합하려면 **colspan**을 6으로 설정하면 될 것이다.
+
+### 15. 미디어(img, audio, video)
