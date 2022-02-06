@@ -483,4 +483,94 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 
 점심시간의 경우 하나의 행을 전부 사용하고 있으므로, 해당 행의 모든 열을 병합하면 된다. 열 병합은 앞서 말했듯 **colspan**을 사용하면 된다. **thead**에서 6개의 **th**를 만들었으므로 모든 칸은 통합하려면 **colspan**을 6으로 설정하면 될 것이다.
 
-### 15. 미디어(img, audio, video)
+### 15. 미디어(img, audio, video, iframe)
+
+> **img** 태그는 이미 앞에서 충분히 다뤘으므로 **audio, video, iframe**를 살펴 보자.  
+> 우선, **audio**는 음성 파일을 입력할 떄 쓰는 태그이다.  
+> 기본 형태는 아래와 같다.
+
+```html
+<audio src=""></audio>
+```
+
+**source** attr에 상대경로를 입력해서 파일을 불러오면 된다.  
+다만, 이 상태로 태그를 입력해도 웹 페이지에는 전혀 보이지않고 들리지도 않는다.  
+이 때 필요한 것이 **controls** attr이다.  
+이 속성을 사용하면 볼륨 조절, 재생 시간 등을 확인 할 수 있다.
+
+```html
+<audio src="" controls></audio>
+```
+
+만약 이런 볼륨 조절, 재생 시간 같은 표시를 보고싶지않고, 재생은 하고 싶다면  
+**autoplay** attr을 사용하면 된다.
+
+```html
+<audio src="" autoplay></audio>
+```
+
+이런 오디오 파일을 계속해서 재생하고 싶다면 **loop** attr을 사용하면 된다.
+
+```html
+<audio src="" loop></audio>
+```
+
+이렇게 하나의 태그로 사용하는 방법도 있지만, 여러개의 파일은 삽입하는 방법도 있다.  
+아래와 같이 작성하는 것이 그 방법이다.
+
+```html
+<audio>
+  <source src="./assets/audios/kimbug.wav" type="audio/wav" />
+  <source src="./assets/audios/kimbug.mp3" type="audio/mpeg" />
+  <source src="./assets/audios/kimbug.ogg" type="audio/ogg" />
+  <p>당신의 브라우저를 버리시고 크롬을 사용하시는게 어떨까요?</p>
+</audio>
+```
+
+이 방법은 어떤 파일 확장자를 지원하지 않는 브라우저에서 동작을 원활하게 하기 위한 것으로, 특정 브라우저에서 지원하지 않는 파일 확장자가 있다면 **source** 태그에 링크되어 있는 파일들 중 지원하는 파일을 재생한다.  
+또한, 반드시 **type** attr을 같이 사용해야하는데, **"audio/파일 확장자 코드"** 를 작성해주면 된다.  
+파일 확장자 코드의 경우 확장자마다 상이하니 검색해서 적는 것이 좋을 것 같다.  
+만약, 이렇게 적어놓은 파일들 중 해당 브라우저에서 지원하는 파일 확장자가 단 하나도 없다면, 위 코드 예시처럼 다른 태그를 사용하여 안내 문구를 보이도록 할 수 있다.
+
+> 다음으로는 **video** 태그이다.  
+> **video** 태그는 **audio** 태그와 사용법이 사용법이 완전히 같다.
+
+```html
+<video src="" controls></video>
+<video autoplay>
+  <source src="./assets/videos/kimbug.mp4" type="video/mp4" />
+  <source src="./assets/videos/kimbug.mov" type="video/mp4" />
+  <p>당신의 브라우저를 업데이트 하는게 어떨까요?</p>
+  <a href="https://browsehappy.com/">브라우저 업데이트 하기</a>
+</video>
+```
+
+여기서 눈여겨 볼 점은 **source** 태그를 감싼 **video**에 **autoplay** attr을 사용했다는 것이다. 이 방법은 **audio** 태그와도 사용법이 같으니 눈여겨 보자.
+
+> 다음으로는 **iframe** 태그이다.  
+> 이 태그는 html 안에 또 다른 html을 임베드할 떄 쓰인다.
+
+```html
+<iframe src="" frameborder=""></iframe>
+```
+
+**source** attr에 보여주고싶은 url이나, html 파일의 상대 경로를 적으면 된다.  
+보통은 **iframe**을 직접 작성하기보다 유튜브 같은 영상의 **iframe** 코드를 가져와서 사용한다.  
+예를들어 어떠한 유튜브 영상의 **iframe** 코드를 가져오 결과는 아래와 같다.
+
+```html
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/0_pvO4oDI64"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+```
+
+많은 속성들이 이미 설정되어 있는 것을 볼 수 있다.  
+위 코도는 영상만을 띄워준다.
+
+### 16. 기타 태그
