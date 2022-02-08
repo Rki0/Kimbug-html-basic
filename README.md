@@ -340,7 +340,7 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 > **button** 태그는 위에서부터 **form, input** 태그와 함께 많이 쓰여왔다.  
 > **button** 태그를 사용할 때는 항상 **type** attr를 반드시 써줘야한다.  
 > attr에는 3가지가 있다.  
-> 첫 째, **submit**이다. 보통 **form**을 제출할 때 사용한다. 가장 많이 사용하는 속성이기도 하다.
+> 첫 째, **submit**이다. 보통 **form**을 제출할 때 사용한다. 가장 많이 사용하는 속성이기도 하다.  
 > 둘 째, **button**이다. 보통 JS와 연결해서 눌렀을 때 JS 코드가 실행되게 하는 등의 기능을 구현할 때 쓰인다.  
 > 셋 째, **reset**이다. **form, input**에 기입한 내용을 전부 리셋해버리는 기능을 구현한다.
 
@@ -574,3 +574,144 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 위 코도는 영상만을 띄워준다.
 
 ### 16. 기타 태그
+
+> 이번에는 쏠쏠하게 활용되는 태그를 몇 가지 살펴보도록 하겠다.  
+> 첫 째, **abbr** 태그이다.  
+> abbreviation을 의미하며 번역하면 약자라는 의미를 가진다.  
+> 어떤 약자에 대한 설명을 하고 싶을 때 그 약자를 이 태그로 감싸주면 된다.
+
+```html
+<p>
+  너...혹시
+  <abbr title="Attention Deficit Hyperactivity Disorder">ADHD</abbr>니?
+</p>
+```
+
+반드시 **title** 속성을 같이 사용해줘야하며, 약자의 풀 네임을 적어준다.  
+태그로 감싸진 부분은 점선으로 밑줄이 쳐지며, 마우스를 올리면 **title**에 적어놓은 풀 네임이 보이게 된다.
+
+> 둘 째, **address** 태그이다. 주로 연락처에 관한 정보를 입력할 때 쓰는 태그이다.  
+> 연락처라고 하면 다음과 같은게 있을 것이다.
+
+- (물리적 주소) 번지수, 위도, 경도..
+- URL
+- E-mail
+- 전화번호
+- SNS
+
+```html
+<address>
+  <h1>박갓디바</h1>
+  <a href="https://youtube.com/c/kimbug">https://youtube.com/c/kimbug</a>
+</address>
+```
+
+이렇게 **address** 태그 안에 적은 텍스트들은 폰트가 기울어져서 나오게 된다.
+
+> 셋 째, **pre, code** 태그이다. **pre**는 preformatted text를 의미한다.  
+> 즉, 포맷되기 전 날 것의 텍스트를 말한다.
+> **code**는 말 그대로 코드를 의미하며, 무조건 **pre** 태그와 같이 써야하는 것은 아니다.  
+> 주로 코드를 보여주고싶을 때 사용한다.
+
+```html
+<p>예를들어, p태그는 엔터를 써도 웹에 표시되지않지만</p>
+<pre>
+      그냥 이렇게 쓰면
+      내가 html에 작성한 그대로
+      출력이 된다.
+심지어 탭 키 마저 구현이 됨.
+ㅇ ㅏ ㄴ ㅕ ㅎ ㅏ ㅅ ㅔ ㅇ
+ ㄴ    ㅇ            ㅛ
+<p>ㅇ ㅏ ㄴ ㅕ ㅎ ㅏ ㅅ ㅔ ㅇ
+  ㄴ    ㅇ            ㅛ</p>
+  이렇게 써도 pre 내부에서는 그대로 출력
+  <code>
+    console.log('hello ki0');
+      let ki0 = 100;
+  </code>
+  </pre>
+<code> console.log('hello ki0'); let ki0 = 100; </code>
+```
+
+위 코드처럼 **p** 태그는 엔터를 코드에 아무리 입력을 해도 결국 웹 페이지에 보이는 것은 한 줄로 된 텍스트인데, **pre** 태그를 사용하면 이런 표현이 전부 웹 페이지에 그대로 보이게 되는 것이다. 또한 폰트에도 변화가 생긴다.  
+**code** 태그는 **pre** 안에 작성한게 있고, 밖에 작성한게 있다.  
+둘의 차이점은 엔터나 탭 같은 코드 가시성을 높여주는 것들이 적용이 되냐 안되냐이다.  
+**pre** 태그 안에 작성한 **code**는 입력한 텍스트 그대로 출력되는 반면, 밖에 작성한 **code**는 **p** 태그처럼 아무리 엔터를 입력해도 하나의 줄로 보이게 된다.
+
+### 17. HTML 기본 골격
+
+아무것도 작성하지 않은 상태의 HTML 코드를 보며, 어떤 부분이 어떤 역할을 하는지 살펴보자.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--뇌라고 생각하자.-->
+    <!--굉장히 중요한 많은 정보를 가지고 있음.-->
+    <!--meta 데이터를 선언할 때 사용됨.-->
+    <!--어떤 문서가 참조되었고 등등..-->
+    <meta charset="UTF-8" />
+    <!--meta 태그는 name = "메타데이터 종류, 성격", content ="메타데이터 값"-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--viewport는 화면 크기라고 생각하면 됨. 화면 전체가 viewport 사이즈가 됨. 최근에는 브라우저를 보는 화면, 기기 크기가 너무 다양해서 중요한 속성이 됨. 반응형 사이트를 만들 수 있게 됨!!!-->
+    <!--width=device-width : width 값을 사용자 화면의 가로 사이즈에 맞춰라~-->
+    <!--initial-scale=1.0 : 원래 사이즈 비율로 보여줘라~-->
+    <meta name="author" content="Rki0" />
+    <meta name="keywords" content="Rki0, html 기초, html 공부" />
+    <!--키워드에 작성된 녀석들을 검색하면 우리 페이지를 보여줘~라고 부탁하는 것-->
+    <meta
+      name="description"
+      content="이 페이지는 박기영의 프론트엔드 기초 공부를 위한 실험 사이트입니다."
+    />
+    <!--description은 설명한다는 것으로, 이 페이지가 무엇에 관한 페이지인지 주절주절 설명함.-->
+    <title>
+      <!--문서의 대제목 역할. 웹 페이지의 제목이므로, 검색 최적화(Search Engine
+      Optimization)에 매우 중요한 역할!--> <!--검색 최적화를 위해 title을 잘
+      쓰는 법! 1. 키워드 단순 나열은 비추천! 2. 페이지마다 그에 맞게 변경.
+      예를들어, 포폴 사이트가 있다면 홈, 자기소개, 작품 페이지 등등...다르게!
+      무엇에 관한 내용인지 센스있게 적자~ --> HTML의 기본 골격 공부
+    </title>
+    <link rel="stylesheet" href="./style.css" />
+    <!--css 파일을 링크하는 태그. 아래 처럼 font를 사용할 때도 link 태그를 사용함.-->
+    <link
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      /*html 문서 내에서 css 코드를 작성할 때 사용. 굳이...?*/
+      /*link로 연결한 css 파일을 덮어버리기 때문에 웬만하면 사용하지말자.*/
+      h1 {
+        font-size: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <!--우리가 지금까지 배운 태그를 적는 곳-->
+    <!--웹 문서에 보여줄 모든 컨텐츠를 담는 곳-->
+    <h1>Ki0</h1>
+    <p>안녕하세요 폰트입니다.</p>
+    <script src="">
+      /*js파일을 연결할 때 쓰는 태그*/
+    </script>
+    <script>
+      /*이렇게 사용하면 html 문서 내에서 js 코드를 바로 적을 수 있음. style 태그와 같다.*/
+      /*script 태그는 다운로드 될 때 까지 html 동작을 중지하고 있으므로 head보다는 body 가장 아래에 작성하는 편.*/
+      let name = document.querySelector("h1");
+      name.addEventListener("click", function (event) {
+        this.innerText = "hi";
+      });
+    </script>
+  </body>
+</html>
+```
+
+가정 먼저 보게되는 태그는 **DOCTYPE**이다. 이 태그는 뒤에 파일 형식을 붙여줌으로서 이 파일이 어떠한 기능을 할 파일인지를 알려준다.  
+Document Type Declaration == DTD 선언 == 문서 형식 선언 이라고도 한다.  
+위 코드에서는 html이라고 적었으므로 "이 문서는 HTML5(가장 최신 버전)으로 작성된 문서니까 잘 렌더링 해줘~"라고 브라우저에게 알려주는 것이다.
+
+다음으로는, **html** 태그이다. 이 태그부터 html 문서가 시작된다는 것을 알려준다.  
+이 태그 안에는 **head, body** 태그가 큰 덩어리로 들어간다.
+
+**head** 태그는 말 그대로 문서의 뇌를 담당한다.
