@@ -640,64 +640,39 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 
 ### 17. HTML 기본 골격
 
-아무것도 작성하지 않은 상태의 HTML 코드를 보며, 어떤 부분이 어떤 역할을 하는지 살펴보자.
+> 아무것도 작성하지 않은 상태의 HTML 코드를 보며, 어떤 부분이 어떤 역할을 하는지 살펴보자.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--뇌라고 생각하자.-->
-    <!--굉장히 중요한 많은 정보를 가지고 있음.-->
-    <!--meta 데이터를 선언할 때 사용됨.-->
-    <!--어떤 문서가 참조되었고 등등..-->
     <meta charset="UTF-8" />
-    <!--meta 태그는 name = "메타데이터 종류, 성격", content ="메타데이터 값"-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--viewport는 화면 크기라고 생각하면 됨. 화면 전체가 viewport 사이즈가 됨. 최근에는 브라우저를 보는 화면, 기기 크기가 너무 다양해서 중요한 속성이 됨. 반응형 사이트를 만들 수 있게 됨!!!-->
-    <!--width=device-width : width 값을 사용자 화면의 가로 사이즈에 맞춰라~-->
-    <!--initial-scale=1.0 : 원래 사이즈 비율로 보여줘라~-->
     <meta name="author" content="Rki0" />
     <meta name="keywords" content="Rki0, html 기초, html 공부" />
-    <!--키워드에 작성된 녀석들을 검색하면 우리 페이지를 보여줘~라고 부탁하는 것-->
     <meta
       name="description"
       content="이 페이지는 박기영의 프론트엔드 기초 공부를 위한 실험 사이트입니다."
     />
-    <!--description은 설명한다는 것으로, 이 페이지가 무엇에 관한 페이지인지 주절주절 설명함.-->
-    <title>
-      <!--문서의 대제목 역할. 웹 페이지의 제목이므로, 검색 최적화(Search Engine
-      Optimization)에 매우 중요한 역할!--> <!--검색 최적화를 위해 title을 잘
-      쓰는 법! 1. 키워드 단순 나열은 비추천! 2. 페이지마다 그에 맞게 변경.
-      예를들어, 포폴 사이트가 있다면 홈, 자기소개, 작품 페이지 등등...다르게!
-      무엇에 관한 내용인지 센스있게 적자~ --> HTML의 기본 골격 공부
-    </title>
+    <title>HTML의 기본 골격 공부</title>
     <link rel="stylesheet" href="./style.css" />
-    <!--css 파일을 링크하는 태그. 아래 처럼 font를 사용할 때도 link 태그를 사용함.-->
     <link
       href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
       rel="stylesheet"
       type="text/css"
     />
     <style>
-      /*html 문서 내에서 css 코드를 작성할 때 사용. 굳이...?*/
-      /*link로 연결한 css 파일을 덮어버리기 때문에 웬만하면 사용하지말자.*/
       h1 {
         font-size: 3em;
       }
     </style>
   </head>
   <body>
-    <!--우리가 지금까지 배운 태그를 적는 곳-->
-    <!--웹 문서에 보여줄 모든 컨텐츠를 담는 곳-->
     <h1>Ki0</h1>
     <p>안녕하세요 폰트입니다.</p>
-    <script src="">
-      /*js파일을 연결할 때 쓰는 태그*/
-    </script>
+    <script src=""></script>
     <script>
-      /*이렇게 사용하면 html 문서 내에서 js 코드를 바로 적을 수 있음. style 태그와 같다.*/
-      /*script 태그는 다운로드 될 때 까지 html 동작을 중지하고 있으므로 head보다는 body 가장 아래에 작성하는 편.*/
       let name = document.querySelector("h1");
       name.addEventListener("click", function (event) {
         this.innerText = "hi";
@@ -707,11 +682,103 @@ input 태그의 또 다른 type으로는 **radio, checkbox**가 있다.
 </html>
 ```
 
-가정 먼저 보게되는 태그는 **DOCTYPE**이다. 이 태그는 뒤에 파일 형식을 붙여줌으로서 이 파일이 어떠한 기능을 할 파일인지를 알려준다.  
-Document Type Declaration == DTD 선언 == 문서 형식 선언 이라고도 한다.  
-위 코드에서는 html이라고 적었으므로 "이 문서는 HTML5(가장 최신 버전)으로 작성된 문서니까 잘 렌더링 해줘~"라고 브라우저에게 알려주는 것이다.
+> 가정 먼저 보게되는 태그는 **DOCTYPE**이다. 이 태그는 뒤에 파일 형식을 붙여줌으로서 이 파일이 어떠한 기능을 할 파일인지를 알려준다.  
+> Document Type Declaration == DTD 선언 == 문서 형식 선언 이라고도 한다.  
+> 위 코드에서는 html이라고 적었으므로 "이 문서는 HTML5(가장 최신 버전)으로 작성된 문서니까 잘 렌더링 해줘~"라고 브라우저에게 알려주는 것이다.
 
-다음으로는, **html** 태그이다. 이 태그부터 html 문서가 시작된다는 것을 알려준다.  
-이 태그 안에는 **head, body** 태그가 큰 덩어리로 들어간다.
+> 다음으로는, **html** 태그이다. 이 태그부터 html 문서가 시작된다는 것을 알려준다.  
+> 이 태그 안에는 **head, body** 태그가 큰 덩어리로 들어간다.
 
-**head** 태그는 말 그대로 문서의 뇌를 담당한다.
+> **head** 태그는 말 그대로 문서의 뇌를 담당한다. 어떤 문서가 참조되었고, 어떤 방식으로 화면을 정의하고, 웹 페이지 제목은 뭐고 등등...많은 정보를 포함한다.  
+> **head** 내부에 들어가는 태그들을 살펴보도록하자.
+
+**meta** 태그는 보통 속성으로 **name = "메타데이터 종류, 성격", content = "메타데이터 값"** 을 입력받는다.  
+아래 코드를 통해 더 자세히 살펴보도록 하겠다.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="Rki0" />
+<meta name="keywords" content="Rki0, html 기초, html 공부" />
+<meta
+  name="description"
+  content="이 페이지는 박기영의 프론트엔드 기초 공부를 위한 실험 사이트입니다."
+/>
+```
+
+**viewport**는 화면 크기이다. 즉, 화면 전체가 **viewport**의 사이즈라고 생각하면 된다.  
+최근에는 브라우저를 보는 기기의 크기가 다양해지다보니 **viewport**가 매우 중요한 속성이 되었다. 이는 반응형 사이트를 만드는데 도움을 준다!  
+**width=device-width**는 width를 사용자 화면의 가로 사이즈에 맞추라는 뜻이고,  
+**initial-scale=1.0**는 원래 사이즈 비율로 보여달라는 뜻이다.  
+**keywords** 속성은 **content**에 작성된 것들을 누군가가 검색을 하게 될시 우리의 페이지를 보이도록 유도할 수 있는 기능이 있다.  
+**description**은 말그대로 설명이라는 뜻으로, 이 페이지가 무엇에 관한 페이지인지 설명을 써넣을 때 사용한다.
+
+다음으로 볼 것은 **title** 태그이다.  
+이 태그에 작성한 내용은 웹 페이지 태그에 보인다.
+웹 페이지(혹은 문서)의 대제목 역할을 한다.
+
+```html
+<title>HTML의 기본 골격 공부</title>
+```
+
+제목이므로, 검색 최적화(Search Engine Optimization)에 매우 중요한 역할을 한다.  
+검색 최적화를 위해 **title**을 작성하는 소소한 팁은 아래와 같다.
+
+1. 키워드의 단순 나열은 웬만하면 피하자!
+2. 페이지마다 그에 맞게 변경하자!  
+   예를들어, 포트폴리오 사이트에서 홈, 자기소개, 작품 페이지 등등..전부 다르게 작성하는 것이다.
+3. 무엇에 관한 내용인지 한번에 알 수 있게 적자!
+
+다음으로는 **link** 태그이다.  
+**link** 태그는 css 파일을 링크하는데 주로 사용된다.  
+혹은 별도의 font나 아이콘을 사용할 때도 사용한다.
+**href**에 가져오고자하는 파일의 상대 경로나 url을 적는다.
+
+```html
+<link rel="stylesheet" href="./style.css" />
+<link
+  href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+```
+
+다음으로는 **style** 태그이다.  
+이 태그는 html 문서 내에서 직접 css 코드를 작성할 때 사용한다.  
+보통은 css 파일을 별도로 만들어서 **link**하기 때문에 굳이 사용하지 않는다.  
+**link**로 연결한 css 파일을 덮어버리기 때문에 웬만하면 사용하지말자.
+
+```html
+<style>
+  h1 {
+    font-size: 3em;
+  }
+</style>
+```
+
+> 이상으로 **head** 태그에 들어가는 태그들을 알아보았다.  
+> 다음으로는 **body** 태그에 대해서 알아보자.
+> **body** 태그는 처음부터 HTML 골격 전까지 배웠던 문서 작성 태그들을 적는 곳으로,  
+> 웹 문서에 보여줄 모든 컨텐츠를 담는 곳이다.
+
+```html
+<body>
+  <h1>Ki0</h1>
+  <p>안녕하세요 폰트입니다.</p>
+  <script src="./js/app.js"></script>
+  <script>
+    let name = document.querySelector("h1");
+    name.addEventListener("click", function (event) {
+      this.innerText = "hi";
+    });
+  </script>
+</body>
+```
+
+**body** 태그 안에 들어가는 태그 중 위에서 배우지 않은 **script**라는 태그가 보인다.  
+이 태그는 javascript 파일을 연결할 때 쓰는 태그이다.  
+**src** 속성을 활용해서 파일의 상대 경로를 입력해 불러올 수도 있고,  
+**style** 태그처럼 html 문서 내에 직접 적을 수도 있다.  
+**script** 태그는 다운로드가 완료될 때까지 html 동작을 중지하고 있기 때문에,  
+**head** 태그 보다는 **body** 태그의 맨 아래에 작성하는 편이다.
+
+### 🥳 이상으로 HTML에 대한 기본적인 내용들을 살펴보았다. 수고하셨습니다~
